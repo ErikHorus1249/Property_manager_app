@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Add_property">
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/add_pro_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/add_pro_heading"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-3dp" />
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/add_pro_heading"
+        android:id="@+id/add_pro_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/add_pro_form"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="320dp" />
+
+    <ImageButton
+        android:id="@+id/add_pro_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_pro_form"
+        android:layout_alignLeft="@id/add_pro_form"
+        android:layout_marginTop="80dp"
+        android:background="@null"
+        app:srcCompat="@drawable/add_pro_back_button"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="531dp" />
+
+    <ImageButton
+        android:layout_alignRight="@id/add_pro_form"
+        android:background="@null"
+        android:layout_alignBottom="@id/add_pro_back_button"
+        android:id="@+id/add_pro_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/add_pro_add_button"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="531dp" />
+
+    <ImageView
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/add_pro_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/add_pro_footer"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="239dp" />
+
+    <EditText
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/add_pro_heading"
+        android:textSize="20dp"
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolor"
+        android:hint="Enter property's name"
+        android:background="@null"
+        android:id="@+id/add_pro_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <EditText
+        android:background="@null"
+        android:layout_marginTop="36dp"
+        android:layout_alignLeft="@id/add_pro_name"
+        android:textSize="20dp"
+        android:layout_below="@id/add_pro_name"
+        android:hint="Enter property's price"
+        android:textColorHint="@color/textcolor"
+        android:textColor="@color/textcolor"
+        android:id="@+id/add_pro_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <Spinner
+        android:background="@null"
+        android:id="@+id/add_pro_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_pro_form"
+        android:layout_alignLeft="@id/add_pro_form"
+        android:layout_marginTop="24dp" />
+
+    <Spinner
+        android:background="@null"
+        android:layout_alignBottom="@id/add_pro_type"
+        android:layout_alignRight="@id/add_pro_form"
+        android:id="@+id/add_pro_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
