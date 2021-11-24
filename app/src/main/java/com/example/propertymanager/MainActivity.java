@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton main_add_property, main_add_room;
+    ImageButton main_add_property, main_add_room, main_property;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +17,15 @@ public class MainActivity extends AppCompatActivity {
 
         main_add_property = findViewById(R.id.main_add_property);
         main_add_room = findViewById(R.id.main_add_room);
+        main_property = findViewById(R.id.main_property);
+
+        main_property.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), List_property.class);
+                startActivity(intent);
+            }
+        });
 
         main_add_room.setOnClickListener(new View.OnClickListener() {
             @Override
