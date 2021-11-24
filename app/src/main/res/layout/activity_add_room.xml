@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Add_room">
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/add_room_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/add_room_heading"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <ImageView
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/add_room_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/add_room_footer"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="387dp" />
+
+    <ImageButton
+        android:id="@+id/add_room_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_room_description"
+        android:layout_alignRight="@id/add_room_name"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@null"
+        app:srcCompat="@drawable/add_pro_room_button"
+        tools:layout_editor_absoluteX="177dp"
+        tools:layout_editor_absoluteY="287dp" />
+
+    <ImageButton
+        android:id="@+id/add_room_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/add_room_name"
+        android:layout_alignBottom="@id/add_room_add_button"
+        android:background="@null"
+        app:srcCompat="@drawable/add_pro_back_button"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="266dp" />
+
+    <EditText
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolor"
+        android:hint="Enter room's name"
+        android:gravity="left"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/add_room_heading"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/add_room_name"
+        android:id="@+id/add_room_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="353dp" />
+
+    <EditText
+        android:padding="20dp"
+        android:gravity="left"
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolor"
+        android:hint="Enter room's description . . ."
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/add_room_name"
+        android:maxLines="20"
+        android:background="@drawable/add_room_desc"
+        android:id="@+id/add_room_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="497dp" />
+</RelativeLayout>

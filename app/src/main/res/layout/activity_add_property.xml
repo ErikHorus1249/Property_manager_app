@@ -29,9 +29,9 @@
         android:id="@+id/add_pro_back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/add_pro_form"
+        android:layout_below="@id/add_pro_price"
         android:layout_alignLeft="@id/add_pro_form"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="102dp"
         android:background="@null"
         app:srcCompat="@drawable/add_pro_back_button"
         tools:layout_editor_absoluteX="48dp"
@@ -59,20 +59,20 @@
         tools:layout_editor_absoluteY="239dp" />
 
     <EditText
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:layout_below="@id/add_pro_heading"
-        android:textSize="20dp"
-        android:textColor="@color/textcolor"
-        android:textColorHint="@color/textcolor"
-        android:hint="Enter property's name"
-        android:background="@null"
         android:id="@+id/add_pro_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/add_pro_heading"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:background="@null"
         android:ems="10"
+        android:hint="Enter property's name"
         android:inputType="textPersonName"
-        android:text="" />
+        android:text=""
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolor"
+        android:textSize="20dp" />
 
     <EditText
         android:background="@null"
@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="" />
 
     <Spinner

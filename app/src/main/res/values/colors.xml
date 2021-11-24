@@ -10,4 +10,6 @@
     <color name="greybackground">#E7EAE9</color>
     <color name="textcolor">#E5E5E5</color>
     <color name="textbackgroundcolor">#1B0146</color>
+    <color name="darktextcolor">#1B0146</color>
+    <color name="tablebackgroundcolor">#f8bc95</color>
 </resources>

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PropertyManager">
         <activity
+            android:name=".List_property"
+            android:exported="false" />
+        <activity
+            android:name=".Add_room"
+            android:exported="false" />
+        <activity
             android:name=".Add_property"
             android:exported="false" />
         <activity
