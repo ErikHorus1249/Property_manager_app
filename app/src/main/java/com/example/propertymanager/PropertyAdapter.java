@@ -1,18 +1,17 @@
 package com.example.propertymanager;
 
 import android.content.Context;
+import android.graphics.ColorSpace;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.propertymanager.Property;
-import com.example.propertymanager.R;
+import com.example.propertymanager.Model.Property;
 
 import java.util.ArrayList;
 
@@ -41,7 +40,8 @@ public class PropertyAdapter extends ArrayAdapter<Property> {
         custom_pro_name.setText(getItem(position).getPro_name());
         custom_pro_type.setText(getItem(position).getPro_type());
         custom_pro_price.setText(getItem(position).getPro_price());
-        custom_pro_pos.setText(getItem(position).getPro_pos());
+        custom_pro_pos.setText("test");
+//        custom_pro_pos.setText(getItem(position).getPro_pos());
 
         return convertView;
     }

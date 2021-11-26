@@ -17,6 +17,9 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.propertymanager.DatabaseHelper.DatabaseHelper;
+import com.example.propertymanager.Model.Property;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
@@ -24,6 +27,7 @@ public class List_property extends AppCompatActivity {
 
     ListView list_pro;
     ImageButton list_pro_add;
+    ArrayList<Property> properties;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +39,18 @@ public class List_property extends AppCompatActivity {
         list_pro = findViewById(R.id.list_pro);
 //        list_pro_add = findViewById(R.id.list_pro_add);
 
+        DatabaseHelper databaseHelper = new DatabaseHelper(getBaseContext());
+        properties = databaseHelper.get_properties();
+
         registerForContextMenu(list_pro);
 
-        ArrayList<Property> list_property = new ArrayList<>();
-        list_property.add(new Property("San pham 1", "dien tu", "12000", "Phong 1"));
-        list_property.add(new Property("San pham 2", "da dung", "18000", "Phong 2"));
-        list_property.add(new Property("San pham 3", "dien lanh", "12000", "Phong 3"));
-        list_property.add(new Property("San pham 4", "Trang tri", "12000", "Phong 4"));
+//        ArrayList<Property> list_property = new ArrayList<>();
+//        list_property.add(new Property("San pham 1", "dien tu", "12000", 1));
+//        list_property.add(new Property("San pham 2", "da dung", "18000", 2));
+//        list_property.add(new Property("San pham 3", "dien lanh", "12000", 4));
+//        list_property.add(new Property("San pham 4", "Trang tri", "12000", 7));
 
-        PropertyAdapter propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, list_property);
+        PropertyAdapter propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, properties);
 
         list_pro.setAdapter(propertyAdapter);
 

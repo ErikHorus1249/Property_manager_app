@@ -6,15 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.example.propertymanager.DatabaseHelper.DatabaseHelper;
+import com.example.propertymanager.Model.Property;
+import com.example.propertymanager.Model.Room;
 
 import java.util.ArrayList;
 
 public class Add_property extends AppCompatActivity {
 
-    ImageButton add_pro_back_button;
+    ImageButton add_pro_back_button, add_pro_add_button;
+    EditText add_pro_name, add_pro_price;
     ArrayList<String> type, position;
+    ArrayList<Room> rooms;
     Spinner add_pro_type, add_pro_position;
 
     @Override
@@ -22,12 +30,23 @@ public class Add_property extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_property);
 
+//        DATABASE HELPER
+        DatabaseHelper databaseHelper = new DatabaseHelper(getBaseContext());
+//        get all room for spiner's display
+        position = new ArrayList<>();
+        position.add("phong 1");
+        position.add("phong 3");
+        position.add("phong 4");
+
         add_pro_back_button = findViewById(R.id.add_pro_back_button);
+        add_pro_add_button = findViewById(R.id.add_pro_add_button);
         add_pro_position = findViewById(R.id.add_pro_position);
         add_pro_type = findViewById(R.id.add_pro_type);
+        add_pro_name = findViewById(R.id.add_pro_name);
+        add_pro_price = findViewById(R.id.add_pro_price);
 
         create_type_example();
-        create_position_example();
+//        create_position_example();
 
         ArrayAdapter type_adapter = new ArrayAdapter(getBaseContext(), R.layout.custom_spinner_selected_item, type);
         type_adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown_item);
@@ -44,6 +63,24 @@ public class Add_property extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        add_pro_add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                handle room's data
+                String propertyName = add_pro_name.getText().toString().trim();
+                String propertyPrice = add_pro_price.getText().toString().trim();
+                String propertyType = add_pro_type.getSelectedItem().toString().trim();
+                int propertyPos = 1;
+//                int propertyPos = get_room_id_by_name(add_pro_position.getSelectedItem().toString().trim());
+
+                boolean status = databaseHelper.add_property(new Property(propertyName, propertyType, propertyPrice, propertyPos));
+                if(status)
+                    Toast.makeText(getBaseContext(), "Thêm thành công!", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getBaseContext(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void create_type_example(){
@@ -56,9 +93,15 @@ public class Add_property extends AppCompatActivity {
 
     public void create_position_example(){
         position = new ArrayList<>();
-        position.add("Phòng số 1");
-        position.add("Phòng số 2");
-        position.add("Phòng họp số 3");
-        position.add("Phòng họp số 4");
+        for( Room room: rooms){
+            position.add(room.getRoom_name());
+        }
+    }
+
+    public  int get_room_id_by_name(String roomName){
+        for (Room room : rooms){
+            if(roomName.equals(room.getRoom_name())) return  room.getRooom_id();
+        }
+        return 0;
     }
 }

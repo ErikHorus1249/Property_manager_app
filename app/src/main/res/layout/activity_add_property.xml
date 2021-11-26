@@ -38,12 +38,12 @@
         tools:layout_editor_absoluteY="531dp" />
 
     <ImageButton
-        android:layout_alignRight="@id/add_pro_form"
-        android:background="@null"
-        android:layout_alignBottom="@id/add_pro_back_button"
         android:id="@+id/add_pro_add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@id/add_pro_form"
+        android:layout_alignBottom="@id/add_pro_back_button"
+        android:background="@null"
         app:srcCompat="@drawable/add_pro_add_button"
         tools:layout_editor_absoluteX="240dp"
         tools:layout_editor_absoluteY="531dp" />
