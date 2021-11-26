@@ -28,6 +28,9 @@ public class List_property extends AppCompatActivity {
     ListView list_pro;
     ImageButton list_pro_add;
     ArrayList<Property> properties;
+    int selected_row;
+    DatabaseHelper databaseHelper;
+    PropertyAdapter propertyAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,7 @@ public class List_property extends AppCompatActivity {
         list_pro = findViewById(R.id.list_pro);
 //        list_pro_add = findViewById(R.id.list_pro_add);
 
-        DatabaseHelper databaseHelper = new DatabaseHelper(getBaseContext());
+        databaseHelper = new DatabaseHelper(getBaseContext());
         properties = databaseHelper.get_properties();
 
         registerForContextMenu(list_pro);
@@ -50,7 +53,7 @@ public class List_property extends AppCompatActivity {
 //        list_property.add(new Property("San pham 3", "dien lanh", "12000", 4));
 //        list_property.add(new Property("San pham 4", "Trang tri", "12000", 7));
 
-        PropertyAdapter propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, properties);
+        propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, properties);
 
         list_pro.setAdapter(propertyAdapter);
 
@@ -58,7 +61,7 @@ public class List_property extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Property pro = (Property)parent.getItemAtPosition(position);
-                Toast.makeText(getBaseContext(), pro.getPro_name(), Toast.LENGTH_SHORT).show();
+                selected_row = pro.getPro_id();
                 return false;
             }
         });
@@ -83,7 +86,11 @@ public class List_property extends AppCompatActivity {
                 Toast.makeText(this, "edit  selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.delete_action:
-                Toast.makeText(this, "delete  selected", Toast.LENGTH_SHORT).show();
+                databaseHelper.delete_property(selected_row);
+                properties = databaseHelper.get_properties();
+                propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, properties);
+                list_pro.setAdapter(propertyAdapter);
+                Toast.makeText(this, "delete  successfully", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onContextItemSelected(item);

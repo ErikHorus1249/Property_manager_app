@@ -72,9 +72,10 @@ public class Add_property extends AppCompatActivity {
                 String propertyPrice = add_pro_price.getText().toString().trim();
                 String propertyType = add_pro_type.getSelectedItem().toString().trim();
                 int propertyPos = 1;
+                String propertyRoom = add_pro_position.getSelectedItem().toString().trim();
 //                int propertyPos = get_room_id_by_name(add_pro_position.getSelectedItem().toString().trim());
 
-                boolean status = databaseHelper.add_property(new Property(propertyName, propertyType, propertyPrice, propertyPos));
+                boolean status = databaseHelper.add_property(new Property(propertyName, propertyType, propertyPrice, propertyPos, propertyRoom));
                 if(status)
                     Toast.makeText(getBaseContext(), "Thêm thành công!", Toast.LENGTH_SHORT).show();
                 else
@@ -104,4 +105,5 @@ public class Add_property extends AppCompatActivity {
         }
         return 0;
     }
+
 }

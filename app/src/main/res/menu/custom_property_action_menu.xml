@@ -7,18 +7,18 @@
         <item android:id="@+id/edit_action"
             android:title="Edit"
             android:icon="@drawable/edit_icon"
-            app:showAsAction="always">
+            >
         </item>
 
         <item android:id="@+id/delete_action"
             android:title="Delete"
             android:icon="@drawable/delete_icon"
-            app:showAsAction="always">
+            >
         </item>
 
         <item android:id="@+id/filter_action"
             android:title="Up 10M"
-            app:showAsAction="always">
+            >
         </item>
 
     </group>

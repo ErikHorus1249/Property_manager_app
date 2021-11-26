@@ -1,25 +1,34 @@
 package com.example.propertymanager.Model;
 
+import android.content.Context;
+
+import com.example.propertymanager.DatabaseHelper.DatabaseHelper;
+
+import java.util.ArrayList;
+
 public class Property {
     private  int pro_id;
     private  String pro_name;
     private String pro_type;
     private  String pro_price;
     private  int pro_pos;
+    private  String pro_name_room;
 
-    public Property(int pro_id, String pro_name, String pro_type, String pro_price, int pro_pos) {
+    public Property(int pro_id, String pro_name, String pro_type, String pro_price, int pro_pos, String pro_name_room) {
         this.pro_id = pro_id;
         this.pro_name = pro_name;
         this.pro_type = pro_type;
         this.pro_price = pro_price;
         this.pro_pos = pro_pos;
+        this.pro_name_room = pro_name_room;
     }
 
-    public Property(String pro_name, String pro_type, String pro_price, int pro_pos) {
+    public Property(String pro_name, String pro_type, String pro_price, int pro_pos, String pro_name_room) {
         this.pro_name = pro_name;
         this.pro_type = pro_type;
         this.pro_price = pro_price;
         this.pro_pos = pro_pos;
+        this.pro_name_room = pro_name_room;
     }
 
     public int getPro_id() {
@@ -61,5 +70,14 @@ public class Property {
     public void setPro_pos(int pro_pos) {
         this.pro_pos = pro_pos;
     }
+
+    public String getPro_name_room() {
+        return pro_name_room;
+    }
+
+    public void setPro_name_room(String pro_name_room) {
+        this.pro_name_room = pro_name_room;
+    }
+
 }
 

@@ -24,6 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String PROPERTY_TYPE_COL = "type";
     private static final  String PROPERTY_PRICE_COL = "price";
     private static final  String PROPERTY_POSITION_COL = "position";
+    private static final  String PROPERTY_NAME_ROOM_COL = "name_zoom";
     private static final  String ROOM_ID_COL = "id";
     private static final  String ROOM_NAME_COL = "name";
     private static final  String ROOM_DESCRIPTION_COL = "description";
@@ -43,7 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PROPERTY_NAME_COL + " TEXT , "+
                 PROPERTY_TYPE_COL + " TEXT , "+
                 PROPERTY_PRICE_COL + " TEXT , "+
-                PROPERTY_POSITION_COL + " INTEGER )";
+                PROPERTY_POSITION_COL + " INTEGER ," +
+                PROPERTY_NAME_ROOM_COL + " TEXT )";
 
         String create_room = "CREATE TABLE IF NOT EXISTS "+ ROOM_TABLE_NAME +" ( "+
                 ROOM_ID_COL + " INTEGER PRIMARY KEY  AUTOINCREMENT , "+
@@ -79,6 +81,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PROPERTY_TYPE_COL, property.getPro_type());
         values.put(PROPERTY_PRICE_COL, property.getPro_price());
         values.put(PROPERTY_POSITION_COL, property.getPro_pos());
+        values.put(PROPERTY_NAME_ROOM_COL, property.getPro_name_room());
 
         long check = db.insert(PROPERTY_TABLE_NAME, null, values );
         if(check!=-1) return  true;
@@ -96,10 +99,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
-                    cursor.getInt(4)
+                    cursor.getInt(4),
+                    cursor.getString(5)
             ));
         }
         return properties;
+    }
+
+    public boolean delete_property(int id)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        return db.delete(PROPERTY_TABLE_NAME, PROPERTY_ID_COL + "=" + id, null) > 0;
     }
 
     public boolean add_room(Property property){

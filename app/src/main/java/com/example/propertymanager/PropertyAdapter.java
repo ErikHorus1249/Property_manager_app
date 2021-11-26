@@ -11,7 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.propertymanager.DatabaseHelper.DatabaseHelper;
 import com.example.propertymanager.Model.Property;
+import com.example.propertymanager.Model.Room;
 
 import java.util.ArrayList;
 
@@ -40,9 +42,9 @@ public class PropertyAdapter extends ArrayAdapter<Property> {
         custom_pro_name.setText(getItem(position).getPro_name());
         custom_pro_type.setText(getItem(position).getPro_type());
         custom_pro_price.setText(getItem(position).getPro_price());
-        custom_pro_pos.setText("test");
-//        custom_pro_pos.setText(getItem(position).getPro_pos());
+        custom_pro_pos.setText(getItem(position).getPro_name_room());
 
         return convertView;
     }
+
 }
