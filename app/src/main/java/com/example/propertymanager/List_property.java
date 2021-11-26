@@ -1,26 +1,41 @@
 package com.example.propertymanager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class List_property extends AppCompatActivity {
 
     ListView list_pro;
+    ImageButton list_pro_add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_property);
 
+
+
         list_pro = findViewById(R.id.list_pro);
+//        list_pro_add = findViewById(R.id.list_pro_add);
+
+        registerForContextMenu(list_pro);
 
         ArrayList<Property> list_property = new ArrayList<>();
         list_property.add(new Property("San pham 1", "dien tu", "12000", "Phong 1"));
@@ -41,4 +56,32 @@ public class List_property extends AppCompatActivity {
             }
         });
     }
+
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem item = menu.getItem(i);
+            if (item.getItemId() == R.id.edit_action) {
+                item.setIcon(getDrawable(R.drawable.edit_actionn));}
+            if (item.getItemId() == R.id.delete_action) {
+                item.setIcon(getDrawable(R.drawable.delete_action));
+            }
+        }
+        getMenuInflater().inflate(R.menu.custom_property_action_menu, menu);
+    }
+
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.edit_action:
+                Toast.makeText(this, "edit  selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.delete_action:
+                Toast.makeText(this, "delete  selected", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+
+    }
+
 }

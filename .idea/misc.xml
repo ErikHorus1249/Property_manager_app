@@ -8,10 +8,13 @@
         <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/layout/activity_list_property.xml" value="0.264" />
         <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/layout/activity_login_layout.xml" value="0.4" />
         <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/layout/activity_welcome_layout.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/layout/activity_welcome_layout.xml" value="0.33" />
+        <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/layout/custom_menu_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/layout/custom_pro_list_item.xml" value="0.4" />
         <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/layout/custom_spinner_dropdown_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/layout/custom_spinner_selected_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/menu/custom_property_action_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/samiz/Videos/Android/Propertymanager/app/src/main/res/menu/custom_property_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

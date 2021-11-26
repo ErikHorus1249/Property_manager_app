@@ -7,10 +7,10 @@
     tools:context=".Add_property">
 
     <ImageView
-        android:layout_centerHorizontal="true"
         android:id="@+id/add_pro_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/add_pro_heading"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-3dp" />

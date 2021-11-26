@@ -25,18 +25,30 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="488dp" />
 
-    <ImageButton
-        android:background="@null"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="150dp"
+<!--    <ImageButton-->
+<!--        android:id="@+id/list_pro_add"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginRight="32dp"-->
+<!--        android:layout_marginBottom="150dp"-->
+<!--        android:background="@null"-->
+<!--        app:srcCompat="@drawable/list_pro_add"-->
+<!--        tools:layout_editor_absoluteX="271dp"-->
+<!--        tools:layout_editor_absoluteY="495dp" />-->
+
+    <com.airbnb.lottie.LottieAnimationView
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:id="@+id/list_pro_add"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="150dp"
+        android:id="@+id/welcome_key"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/list_pro_add"
-        tools:layout_editor_absoluteX="271dp"
-        tools:layout_editor_absoluteY="495dp" />
+        app:lottie_rawRes="@raw/add_pro_ani"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
 
     <ListView
         android:background="@null"
