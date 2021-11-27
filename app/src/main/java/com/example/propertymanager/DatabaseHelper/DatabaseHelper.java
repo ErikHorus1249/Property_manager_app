@@ -126,11 +126,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else  return false;
     }
 
-    public boolean add_room(Property property){
+    public boolean add_room(Room room){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(ROOM_NAME_COL, property.getPro_name());
-        values.put(ROOM_DESCRIPTION_COL, property.getPro_type());
+        values.put(ROOM_NAME_COL, room.getRoom_name());
+        values.put(ROOM_DESCRIPTION_COL, room.getRoom_desc());
 
         long check = db.insert(ROOM_TABLE_NAME, null, values );
         if(check!=-1) return  true;
@@ -150,6 +150,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ));
         }
         return rooms;
+    }
+
+    public boolean delete_room(int id)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        return db.delete(ROOM_TABLE_NAME, ROOM_ID_COL + "=" + id, null) > 0;
+    }
+
+    public boolean update_room(Room room, int id){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(ROOM_NAME_COL, room.getRoom_name());
+        values.put(ROOM_DESCRIPTION_COL, room.getRoom_desc());
+
+        long check = db.update(ROOM_TABLE_NAME, values, ROOM_ID_COL + "=" + id, null );
+        if(check!=-1) return  true;
+        else  return false;
     }
 }
 

@@ -21,7 +21,7 @@ public class Add_property extends AppCompatActivity {
 
     ImageButton add_pro_back_button, add_pro_add_button;
     EditText add_pro_name, add_pro_price;
-    ArrayList<String> type, position;
+    ArrayList<String> type, positions;
     ArrayList<Room> rooms;
     Spinner add_pro_type, add_pro_position;
 
@@ -32,11 +32,10 @@ public class Add_property extends AppCompatActivity {
 
 //        DATABASE HELPER
         DatabaseHelper databaseHelper = new DatabaseHelper(getBaseContext());
-//        get all room for spiner's display
-        position = new ArrayList<>();
-        position.add("phong 1");
-        position.add("phong 3");
-        position.add("phong 4");
+
+        rooms = databaseHelper.get_rooms();
+        //        get all room for spiner's display
+        create_position_example();
 
         add_pro_back_button = findViewById(R.id.add_pro_back_button);
         add_pro_add_button = findViewById(R.id.add_pro_add_button);
@@ -50,7 +49,7 @@ public class Add_property extends AppCompatActivity {
 
         ArrayAdapter type_adapter = new ArrayAdapter(getBaseContext(), R.layout.custom_spinner_selected_item, type);
         type_adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown_item);
-        ArrayAdapter position_adapter = new ArrayAdapter(getBaseContext(), R.layout.custom_spinner_selected_item, position);
+        ArrayAdapter position_adapter = new ArrayAdapter(getBaseContext(), R.layout.custom_spinner_selected_item, positions);
         position_adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown_item);
 
         add_pro_type.setAdapter(type_adapter);
@@ -96,9 +95,9 @@ public class Add_property extends AppCompatActivity {
     }
 
     public void create_position_example(){
-        position = new ArrayList<>();
+        positions = new ArrayList<>();
         for( Room room: rooms){
-            position.add(room.getRoom_name());
+            positions.add(room.getRoom_name());
         }
     }
 

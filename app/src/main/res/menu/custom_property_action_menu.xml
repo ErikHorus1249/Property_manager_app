@@ -21,6 +21,11 @@
             >
         </item>
 
+        <item android:id="@+id/refresh_action"
+            android:title="Refresh"
+            >
+        </item>
+
     </group>
 
 </menu>

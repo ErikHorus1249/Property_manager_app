@@ -4,59 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Add_room">
+    tools:context=".Edit_room">
 
     <ImageView
         android:layout_centerHorizontal="true"
-        android:id="@+id/add_room_heading"
+        android:id="@+id/edit_room_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/add_room_heading"
+        app:srcCompat="@drawable/edit_room_heading"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="5dp" />
 
     <ImageView
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
         android:id="@+id/add_room_footer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/add_room_footer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        app:srcCompat="@drawable/edit_room_footer"
         tools:layout_editor_absoluteX="50dp"
         tools:layout_editor_absoluteY="387dp" />
 
     <ImageButton
-        android:id="@+id/add_room_add_button"
+        android:id="@+id/edit_room_save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/add_room_description"
-        android:layout_alignRight="@id/add_room_description"
+        android:layout_below="@id/edit_room_description"
+        android:layout_alignRight="@id/edit_room_description"
         android:layout_marginTop="32dp"
 
         android:layout_marginBottom="32dp"
         android:background="@null"
-        app:srcCompat="@drawable/add_pro_room_button"
+        app:srcCompat="@drawable/edit_pro_save"
         tools:layout_editor_absoluteX="177dp"
         tools:layout_editor_absoluteY="287dp" />
 
     <ImageButton
-        android:id="@+id/add_room_back_button"
+        android:id="@+id/edit_room_cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/add_room_name"
-        android:layout_alignBottom="@id/add_room_add_button"
+        android:layout_alignLeft="@id/edit_room_name"
+        android:layout_alignBottom="@id/edit_room_save_button"
         android:background="@null"
-        app:srcCompat="@drawable/add_pro_back_button"
+        app:srcCompat="@drawable/edit_pro_cancel"
         tools:layout_editor_absoluteX="60dp"
         tools:layout_editor_absoluteY="266dp" />
 
     <EditText
-        android:id="@+id/add_room_name"
+        android:id="@+id/edit_room_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/add_room_heading"
+        android:layout_below="@id/edit_room_heading"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/add_room_name"
         android:ems="10"
         android:gravity="left"
@@ -70,10 +70,10 @@
         tools:layout_editor_absoluteY="353dp" />
 
     <EditText
-        android:id="@+id/add_room_description"
+        android:id="@+id/edit_room_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/add_room_name"
+        android:layout_below="@id/edit_room_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:background="@drawable/add_room_desc"
@@ -87,4 +87,5 @@
         android:textColorHint="@color/textcolor"
         tools:layout_editor_absoluteX="103dp"
         tools:layout_editor_absoluteY="497dp" />
+
 </RelativeLayout>

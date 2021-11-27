@@ -30,7 +30,6 @@ import java.util.Collections;
 public class List_property extends AppCompatActivity {
 
     ListView list_pro;
-    ImageButton list_pro_refresh;
     LottieAnimationView list_pro_add;
     ArrayList<Property> properties;
     int selected_row;
@@ -47,18 +46,12 @@ public class List_property extends AppCompatActivity {
 
         list_pro = findViewById(R.id.list_pro);
         list_pro_add = findViewById(R.id.list_pro_add);
-        list_pro_refresh = findViewById(R.id.list_pro_refresh);
+
 
         databaseHelper = new DatabaseHelper(getBaseContext());
         properties = databaseHelper.get_properties();
 
         registerForContextMenu(list_pro);
-
-//        ArrayList<Property> list_property = new ArrayList<>();
-//        list_property.add(new Property("San pham 1", "dien tu", "12000", 1));
-//        list_property.add(new Property("San pham 2", "da dung", "18000", 2));
-//        list_property.add(new Property("San pham 3", "dien lanh", "12000", 4));
-//        list_property.add(new Property("San pham 4", "Trang tri", "12000", 7));
 
         propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, properties);
 
@@ -81,13 +74,7 @@ public class List_property extends AppCompatActivity {
             }
         });
 
-        list_pro_refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, properties);
-                list_pro.setAdapter(propertyAdapter);
-            }
-        });
+
     }
 
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -128,7 +115,6 @@ public class List_property extends AppCompatActivity {
                 ArrayList<Property> filteredProperties = new ArrayList<>();
                 for( Property property: properties){
                     if(Integer.parseInt(property.getPro_price()) > 10000000){
-                        Toast.makeText(getBaseContext(), "chọn "+property.getPro_price(), Toast.LENGTH_SHORT).show();
                         filteredProperties.add(property);
                     }
                 }
@@ -138,6 +124,10 @@ public class List_property extends AppCompatActivity {
                 }else {
                     Toast.makeText(getBaseContext(), "Empty data", Toast.LENGTH_SHORT).show();
                 }
+                return true;
+            case R.id.refresh_action:
+                propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, properties);
+                list_pro.setAdapter(propertyAdapter);
                 return true;
             default:
                 return super.onContextItemSelected(item);

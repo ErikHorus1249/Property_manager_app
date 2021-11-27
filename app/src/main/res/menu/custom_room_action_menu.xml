@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group >
+
+        <item android:id="@+id/edit_room_action"
+            android:title="Edit"
+            android:icon="@drawable/edit_icon"
+            >
+        </item>
+
+        <item android:id="@+id/delete_room_action"
+            android:title="Delete"
+            android:icon="@drawable/delete_icon"
+            >
+        </item>
+
+<!--        <item android:id="@+id/filter_action"-->
+<!--            android:title="Up 10M"-->
+<!--            >-->
+<!--        </item>-->
+
+<!--        <item android:id="@+id/refresh_action"-->
+<!--            android:title="Refresh"-->
+<!--            >-->
+<!--        </item>-->
+
+    </group>
+
+</menu>

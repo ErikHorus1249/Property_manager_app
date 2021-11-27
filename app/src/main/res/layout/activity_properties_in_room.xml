@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".List_property">
+    tools:context=".Properties_in_room">
 
     <ImageView
         android:layout_centerHorizontal="true"
@@ -25,41 +25,30 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="488dp" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/list_pro_add"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginRight="32dp"-->
-<!--        android:layout_marginBottom="150dp"-->
-<!--        android:background="@null"-->
-<!--        app:srcCompat="@drawable/list_pro_add"-->
-<!--        tools:layout_editor_absoluteX="271dp"-->
-<!--        tools:layout_editor_absoluteY="495dp" />-->
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/list_pro_add"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentRight="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginRight="32dp"-->
+    <!--        android:layout_marginBottom="150dp"-->
+    <!--        android:background="@null"-->
+    <!--        app:srcCompat="@drawable/list_pro_add"-->
+    <!--        tools:layout_editor_absoluteX="271dp"-->
+    <!--        tools:layout_editor_absoluteY="495dp" />-->
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="150dp"
-        android:id="@+id/list_pro_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:lottie_rawRes="@raw/add_pro_ani"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"/>
 
     <ListView
-        android:background="@null"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_above="@id/list_pro_footer"
         android:id="@+id/list_pro"
-        android:layout_below="@id/list_top_row"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </ListView>
+        android:layout_height="match_parent"
+        android:layout_above="@id/review_done"
+        android:layout_below="@id/list_top_row"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@null"></ListView>
 
     <ImageView
         android:layout_marginTop="16dp"
@@ -129,5 +118,15 @@
         android:textSize="18dp"
         tools:layout_editor_absoluteX="138dp"
         tools:layout_editor_absoluteY="126dp" />
+
+    <ImageButton
+        android:layout_marginBottom="8dp"
+        android:layout_above="@id/list_pro_footer"
+        android:background="@null"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/review_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/review_done" />
 
 </RelativeLayout>
