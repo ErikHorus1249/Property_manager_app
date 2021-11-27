@@ -16,11 +16,11 @@
         tools:layout_editor_absoluteY="-3dp" />
 
     <ImageView
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:id="@+id/list_pro_footer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         app:srcCompat="@drawable/list_pro_footer"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="488dp" />
@@ -62,12 +62,23 @@
     </ListView>
 
     <ImageView
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/list_pro_heading"
         android:id="@+id/list_top_row"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/list_pro_heading"
+        android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/list_top_row" />
+
+    <ImageButton
+        android:id="@+id/list_pro_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/list_top_row"
+        android:layout_alignRight="@id/list_top_row"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@null"
+        app:srcCompat="@drawable/refresh_icon" />
 
 
 </RelativeLayout>

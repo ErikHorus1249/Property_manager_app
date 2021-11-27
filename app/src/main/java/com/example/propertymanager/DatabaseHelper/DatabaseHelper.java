@@ -112,6 +112,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.delete(PROPERTY_TABLE_NAME, PROPERTY_ID_COL + "=" + id, null) > 0;
     }
 
+    public boolean update_property(Property property, int id){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(PROPERTY_NAME_COL, property.getPro_name());
+        values.put(PROPERTY_TYPE_COL, property.getPro_type());
+        values.put(PROPERTY_PRICE_COL, property.getPro_price());
+        values.put(PROPERTY_POSITION_COL, property.getPro_pos());
+        values.put(PROPERTY_NAME_ROOM_COL, property.getPro_name_room());
+
+        long check = db.update(PROPERTY_TABLE_NAME, values, PROPERTY_ID_COL + "=" + id, null );
+        if(check!=-1) return  true;
+        else  return false;
+    }
+
     public boolean add_room(Property property){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();

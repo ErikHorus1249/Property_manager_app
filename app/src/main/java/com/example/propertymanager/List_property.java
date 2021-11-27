@@ -19,15 +19,18 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.parser.IntegerParser;
 import com.example.propertymanager.DatabaseHelper.DatabaseHelper;
 import com.example.propertymanager.Model.Property;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class List_property extends AppCompatActivity {
 
     ListView list_pro;
+    ImageButton list_pro_refresh;
     LottieAnimationView list_pro_add;
     ArrayList<Property> properties;
     int selected_row;
@@ -44,6 +47,7 @@ public class List_property extends AppCompatActivity {
 
         list_pro = findViewById(R.id.list_pro);
         list_pro_add = findViewById(R.id.list_pro_add);
+        list_pro_refresh = findViewById(R.id.list_pro_refresh);
 
         databaseHelper = new DatabaseHelper(getBaseContext());
         properties = databaseHelper.get_properties();
@@ -76,6 +80,14 @@ public class List_property extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        list_pro_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, properties);
+                list_pro.setAdapter(propertyAdapter);
+            }
+        });
     }
 
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -96,6 +108,8 @@ public class List_property extends AppCompatActivity {
             case R.id.edit_action:
                 Toast.makeText(this, "edit  selected", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getBaseContext(), Edit_property.class);
+
+                intent.putExtra("pro_id", selected_row);
                 intent.putExtra("pro_name", selected_pro.getPro_name());
                 intent.putExtra("pro_price", selected_pro.getPro_price());
                 intent.putExtra("pro_type", selected_pro.getPro_type());
@@ -109,6 +123,21 @@ public class List_property extends AppCompatActivity {
                 propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, properties);
                 list_pro.setAdapter(propertyAdapter);
                 Toast.makeText(this, "delete  successfully", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.filter_action:
+                ArrayList<Property> filteredProperties = new ArrayList<>();
+                for( Property property: properties){
+                    if(Integer.parseInt(property.getPro_price()) > 10000000){
+                        Toast.makeText(getBaseContext(), "chọn "+property.getPro_price(), Toast.LENGTH_SHORT).show();
+                        filteredProperties.add(property);
+                    }
+                }
+                if(!filteredProperties.isEmpty()){
+                    propertyAdapter = new PropertyAdapter(getBaseContext(), R.layout.custom_pro_list_item, filteredProperties);
+                    list_pro.setAdapter(propertyAdapter);
+                }else {
+                    Toast.makeText(getBaseContext(), "Empty data", Toast.LENGTH_SHORT).show();
+                }
                 return true;
             default:
                 return super.onContextItemSelected(item);

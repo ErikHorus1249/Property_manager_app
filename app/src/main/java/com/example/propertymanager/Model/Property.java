@@ -78,7 +78,5 @@ public class Property {
     public void setPro_name_room(String pro_name_room) {
         this.pro_name_room = pro_name_room;
     }
-
-
 }
 
