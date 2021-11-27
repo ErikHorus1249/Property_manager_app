@@ -5,6 +5,7 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -17,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.propertymanager.DatabaseHelper.DatabaseHelper;
 import com.example.propertymanager.Model.Property;
 
@@ -26,11 +28,12 @@ import java.util.ArrayList;
 public class List_property extends AppCompatActivity {
 
     ListView list_pro;
-    ImageButton list_pro_add;
+    LottieAnimationView list_pro_add;
     ArrayList<Property> properties;
     int selected_row;
     DatabaseHelper databaseHelper;
     PropertyAdapter propertyAdapter;
+    Property selected_pro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class List_property extends AppCompatActivity {
 
 
         list_pro = findViewById(R.id.list_pro);
-//        list_pro_add = findViewById(R.id.list_pro_add);
+        list_pro_add = findViewById(R.id.list_pro_add);
 
         databaseHelper = new DatabaseHelper(getBaseContext());
         properties = databaseHelper.get_properties();
@@ -60,9 +63,17 @@ public class List_property extends AppCompatActivity {
         list_pro.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Property pro = (Property)parent.getItemAtPosition(position);
-                selected_row = pro.getPro_id();
+                selected_pro = (Property)parent.getItemAtPosition(position);
+                selected_row = selected_pro.getPro_id();
                 return false;
+            }
+        });
+
+        list_pro_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Add_property.class);
+                startActivity(intent);
             }
         });
     }
@@ -84,6 +95,13 @@ public class List_property extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.edit_action:
                 Toast.makeText(this, "edit  selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getBaseContext(), Edit_property.class);
+                intent.putExtra("pro_name", selected_pro.getPro_name());
+                intent.putExtra("pro_price", selected_pro.getPro_price());
+                intent.putExtra("pro_type", selected_pro.getPro_type());
+                intent.putExtra("pro_pos", selected_pro.getPro_pos());
+
+                startActivity(intent);
                 return true;
             case R.id.delete_action:
                 databaseHelper.delete_property(selected_row);

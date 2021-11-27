@@ -79,5 +79,6 @@ public class Property {
         this.pro_name_room = pro_name_room;
     }
 
+
 }
 

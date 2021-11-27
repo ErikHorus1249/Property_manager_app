@@ -76,8 +76,11 @@ public class Add_property extends AppCompatActivity {
 //                int propertyPos = get_room_id_by_name(add_pro_position.getSelectedItem().toString().trim());
 
                 boolean status = databaseHelper.add_property(new Property(propertyName, propertyType, propertyPrice, propertyPos, propertyRoom));
-                if(status)
+                if(status){
                     Toast.makeText(getBaseContext(), "Thêm thành công!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getBaseContext(), List_property.class);
+                    startActivity(intent);
+                }
                 else
                     Toast.makeText(getBaseContext(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
             }
