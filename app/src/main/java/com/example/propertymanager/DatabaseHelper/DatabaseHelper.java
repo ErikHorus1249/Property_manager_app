@@ -106,6 +106,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return properties;
     }
 
+    public ArrayList<Property> get_properties_by_room(int roomId){
+        ArrayList<Property> properties = new ArrayList<>();
+        String sql = "SELECT * FROM "+ PROPERTY_TABLE_NAME + " WHERE "+ PROPERTY_POSITION_COL + " =' " + roomId +"'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()){
+            properties.add(new Property(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getInt(4),
+                    cursor.getString(5)
+            ));
+        }
+        return properties;
+    }
+
     public boolean delete_property(int id)
     {
         SQLiteDatabase db = getWritableDatabase();

@@ -40,7 +40,7 @@
 
 
     <ListView
-        android:id="@+id/list_pro"
+        android:id="@+id/list_pro_in_room"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/review_done"
@@ -120,13 +120,13 @@
         tools:layout_editor_absoluteY="126dp" />
 
     <ImageButton
-        android:layout_marginBottom="8dp"
-        android:layout_above="@id/list_pro_footer"
-        android:background="@null"
-        android:layout_centerHorizontal="true"
         android:id="@+id/review_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/list_pro_footer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:background="@null"
         app:srcCompat="@drawable/review_done" />
 
 </RelativeLayout>

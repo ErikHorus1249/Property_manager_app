@@ -98,6 +98,12 @@ public class List_room extends AppCompatActivity {
                 list_room.setAdapter(roomAdapter);
                 Toast.makeText(this, "delete  successfully", Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.detail_room_action:
+                Intent intent1 = new Intent(getBaseContext(), Properties_in_room.class);
+                intent1.putExtra("room_id", selected_row);
+                Toast.makeText(getBaseContext(), "ma "+selected_row, Toast.LENGTH_SHORT).show();
+                startActivity(intent1);
+                return true;
             default:
                 return super.onContextItemSelected(item);
         }

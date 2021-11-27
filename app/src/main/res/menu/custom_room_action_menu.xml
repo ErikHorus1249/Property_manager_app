@@ -15,10 +15,10 @@
             >
         </item>
 
-<!--        <item android:id="@+id/filter_action"-->
-<!--            android:title="Up 10M"-->
-<!--            >-->
-<!--        </item>-->
+        <item android:id="@+id/detail_room_action"
+            android:title="Detail"
+            >
+        </item>
 
 <!--        <item android:id="@+id/refresh_action"-->
 <!--            android:title="Refresh"-->
